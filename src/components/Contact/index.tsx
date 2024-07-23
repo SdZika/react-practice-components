@@ -1,34 +1,29 @@
-import { useState } from "react"
+import { useState, FC } from "react"
 import { Input } from "../Input"
 
-export const Contact = () => {
-    const [state, setState] = useState({
+
+export const Contact: FC = () => {
+
+    const [name, setName] = useState<string>("")
+    const [email, setEmail] = useState<string>("")
+    const [message, messageEmail] = useState<string>("")
+
+    const [state, setState] = useState<{name: string, email:string, message: string}>({
         name: "",
         email: "",
         message: ""
     })
 
-
-
-    const updateState = (e: any) => {
-        const value = e.target.value;
-        const id = e.target.id;
-
-        setState({
-            ...state,
-            [id]: value
-        })
-    }
-
-    console.log(state.name)
-    console.log(state.email)
-    console.log(state.message)
+    const updateName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setName((prevState) => (e.target.value));
+        console.log(name)
+    };
+    
     return (
-        <form>
-            <Input change={updateState} name="name" value={state.name}/>
-            <Input change={updateState} name="email" value={state.email}/>
-            <Input change={updateState} name="message" value={state.message}/>
-        </form>
+        <>
+            <Input name="name" change={updateName}/>
+            
+        </>
 
     )
 }

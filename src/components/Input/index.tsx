@@ -1,10 +1,7 @@
-export const Input = (props: any) => {
-    return (
-        <>
-            <label>Enter your {props.name}
-                <input onChange={props.change} id={props.name} type="text" />
-            </label>
-        </>
+import { FC } from "react"
 
+export const Input: FC<{name: string, change: () => React.ChangeEvent<HTMLInputElement>}> = ({name, change}) => {
+    return (
+        <label>Please add your {name} <input name={name} onChange={change}/></label>
     )
 }
