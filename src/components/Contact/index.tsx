@@ -15,6 +15,7 @@ export const Contact: FC = () => {
     })
 
     const updateName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const name = e.target.value;
         setName((prevState) => (e.target.value));
         console.log(name)
     };
