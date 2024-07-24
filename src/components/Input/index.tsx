@@ -1,13 +1,5 @@
-// Input.tsx
-import React, { FC } from "react";
-
-interface InputProps {
-    name: string;
-    change: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const Input: FC<InputProps> = ({ name, change }) => {
-    return (
-        <label> Add {name}<input type="text" name={name} onChange={change} /></label>
+export const Input = (props: any)=> {
+    return(
+        <label> Enter props.name <input name={props.name} /></label>
     )
-};
+}
