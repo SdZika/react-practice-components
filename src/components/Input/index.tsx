@@ -1,14 +1,15 @@
-import { FC } from "react";
+import { FC, ChangeEvent } from "react";
 
-interface myProps {
+
+interface inputProps{
     name: string;
-    change: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
+    change: (e: ChangeEvent<HTMLInputElement>) => void
 
 }
 
-export const Input:FC<myProps> = ({name, change})=> {
-    return(
-        <label> Enter {name} <input name={name} onChange={change}/></label>
+export const Input: FC<inputProps> = ({name, value, change}) => {
+    return (
+        <label>Enter {name}<input name={name} value={value} onChange={change}/></label>
     )
 }
